@@ -4,13 +4,33 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text-color: #ffffff;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: #000000;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
 body {
-  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
 }
 
 body * {
   font-family: "Inter", sans-serif;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 #container {
@@ -19,6 +39,7 @@ body * {
   padding: 0 24px;
 }
 
+/*Profile */
 #profile {
   text-align: center;
   padding: 24px;
@@ -32,6 +53,41 @@ body * {
   font-weight: 500;
   line-height: 24px;
   margin-top: 8px;
+}
+
+/*Switch */
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
 }
 
 /*links*/
@@ -48,8 +104,8 @@ ul li a {
   justify-content: center;
   align-items: center;
   padding: 16px 24px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   border-radius: 8px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -59,10 +115,11 @@ ul li a {
 }
 
 ul li a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1.5px solid #ffffff;
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
 }
 
+/*Icons Redes sociais*/
 #redes-sociais {
   display: flex;
   justify-content: center;
@@ -80,7 +137,7 @@ ul li a:hover {
 }
 
 #redes-sociais a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--highlight-color);
 }
 
 footer {
